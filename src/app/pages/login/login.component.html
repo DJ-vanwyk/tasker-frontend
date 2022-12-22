@@ -1,19 +1,35 @@
 <main>
-  <form action="post">
+  <form>
     <h1>Login</h1>
-    <app-text-input></app-text-input>
     <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">
+      <label for="username" class="form-label">
+        Username
+      </label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        placeholder="Enter username"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">
         Password
       </label>
       <input
         type="password"
         class="form-control"
-        id="exampleFormControlInput1"
-        placeholder=""
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Enter password"
       />
     </div>
-    <app-button></app-button>
+    <button type="submit" class="btn btn-dark" (click)="onClick()">
+      Login
+    </button>
   </form>
   <img src="../../../assets/login.svg" alt="" />
 </main>

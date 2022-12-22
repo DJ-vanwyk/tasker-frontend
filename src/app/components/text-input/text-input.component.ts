@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-text-input',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./text-input.component.scss']
 })
 export class TextInputComponent {
-
+  value: string = "";
+  @Input() label: string = "";
 }
