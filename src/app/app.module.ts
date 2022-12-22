@@ -9,6 +9,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { TextInputComponent } from './components/text-input/text-input.component';
 import { ButtonComponent } from './components/button/button.component';
 import { PassInputComponent } from './components/pass-input/pass-input.component';
+import { TasksComponent } from './pages/tasks/tasks.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { NavButtonComponent } from './components/nav-button/nav-button.component';
+import { UsersComponent } from './pages/users/users.component';
+import { StatusesComponent } from './pages/statuses/statuses.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +22,19 @@ import { PassInputComponent } from './components/pass-input/pass-input.component
     LoginComponent,
     TextInputComponent,
     ButtonComponent,
-    PassInputComponent
+    PassInputComponent,
+    TasksComponent,
+    NavBarComponent,
+    NavButtonComponent,
+    UsersComponent,
+    StatusesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

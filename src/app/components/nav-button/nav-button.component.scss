@@ -1,0 +1,13 @@
+.nav-button {
+  font-size: 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding-inline: 16px;
+  padding-block: 8px;
+}
+
+.nav-button:hover {
+  background-color: #ffffff;
+  cursor: pointer;
+}
