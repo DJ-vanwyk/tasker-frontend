@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
+import { Response } from '../../types/response';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,8 +17,9 @@ export class LoginComponent {
 
 
   onClick() {
-    this.authService.login(this.username, this.password).subscribe((data) => {
-      console.log(data);
-    });
+      this.authService.login(this.username, this.password).subscribe((resp: Response) => {
+      console.log(resp);}, (error) => {
+        console.log(error.error);
+      });
   }
 }

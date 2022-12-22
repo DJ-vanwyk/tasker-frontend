@@ -7,12 +7,16 @@
       </label>
       <input
         type="text"
-        class="form-control"
+        class="form-control was-validated"
         id="username"
         name="username"
         [(ngModel)]="username"
         placeholder="Enter username"
+        required
       />
+      <div class="valid-feedback">
+        Looks good!
+      </div>
     </div>
     <div class="mb-3">
       <label for="password" class="form-label">
