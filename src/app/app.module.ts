@@ -15,6 +15,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { NavButtonComponent } from './components/nav-button/nav-button.component';
 import { UsersComponent } from './pages/users/users.component';
 import { StatusesComponent } from './pages/statuses/statuses.component';
+import { WrapperComponent } from './components/wrapper/wrapper.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { StatusesComponent } from './pages/statuses/statuses.component';
     NavBarComponent,
     NavButtonComponent,
     UsersComponent,
-    StatusesComponent
+    StatusesComponent,
+    WrapperComponent
   ],
   imports: [
     BrowserModule,

@@ -4,3 +4,8 @@ main {
   display: grid;
   grid-template-columns: 248px 1fr;
 }
+
+section {
+  padding-inline: 32px;
+  padding-top: 18px;
+}
