@@ -1,0 +1,28 @@
+.my-modal {
+  background-color: rgba(3, 3, 3, 0.5);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  visibility: hidden;
+}
+
+.content {
+  background-color: white;
+  padding-inline: 20px;
+  padding-top: 16px;
+  height: 100%;
+  width: 100%;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.close-button {
+  cursor: pointer;
+}

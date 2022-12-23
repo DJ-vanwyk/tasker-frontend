@@ -16,6 +16,7 @@ import { NavButtonComponent } from './components/nav-button/nav-button.component
 import { UsersComponent } from './pages/users/users.component';
 import { StatusesComponent } from './pages/statuses/statuses.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { WrapperComponent } from './components/wrapper/wrapper.component';
     UsersComponent,
     StatusesComponent,
     WrapperComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { observable, Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Response } from '../types/response';
 
 @Injectable({
@@ -12,11 +12,16 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   get(url: string): Observable<Response> {
-    return this.http.get<Response>(this.baseUrl + url);
+    return this.http.get<Response>(this.baseUrl + url, {
+      withCredentials: true,
+    });
   }
 
   post(url: string, body: any): Observable<Response> {
-    return this.http.post<Response>(this.baseUrl + url, body);
+    return this.http.post<Response>(this.baseUrl + url, body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      withCredentials: true,
+    });
   }
 
   put(url: string, body: any): Observable<Response> {

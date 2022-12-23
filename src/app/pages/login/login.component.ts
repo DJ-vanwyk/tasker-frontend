@@ -17,7 +17,7 @@ export class LoginComponent {
 
   onClick() {
     this.authService.login(this.username, this.password).subscribe(
-      (resp: Response) => {
+      (resp) => {
         if (resp.code === 200) {
           this.router.navigateByUrl('tasks');
         }

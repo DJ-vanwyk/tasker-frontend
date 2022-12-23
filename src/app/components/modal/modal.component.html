@@ -1,0 +1,12 @@
+<div [class.visible]="true" class="my-modal">
+  <div></div>
+  <div class="content">
+    <div class="title">
+      <h3>{{ title }}</h3>
+      <div class="close-button">
+        <fa-icon class="fa-xl" [icon]="faClose"></fa-icon>
+      </div>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>
