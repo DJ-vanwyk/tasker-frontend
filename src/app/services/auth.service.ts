@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-import { User } from '../types/User';
 import { Response } from '../types/response';
+import { ApiService } from './api.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
-  constructor(private http:HttpClient) { }
+  constructor(private api: ApiService) {}
 
   login(username: string, password: string): Observable<Response> {
-      return this.http.post<Response>('http://localhost/tasker/api/login', { username: username, password: password });
+    return this.api.post('/login', {
+      username: username,
+      password: password,
+    });
   }
-    
-  
+
+  logout(): Observable<Response> {
+    return this.api.post('/logout', {});
+  }
 }
