@@ -25,10 +25,15 @@ export class ApiService {
   }
 
   put(url: string, body: any): Observable<Response> {
-    return this.http.put<Response>(this.baseUrl + url, body);
+    return this.http.put<Response>(this.baseUrl + url, body, {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+      withCredentials: true,
+    });
   }
 
   delete(url: string): Observable<Response> {
-    return this.http.delete<Response>(this.baseUrl + url);
+    return this.http.delete<Response>(this.baseUrl + url, {
+      withCredentials: true,
+    });
   }
 }
