@@ -1,9 +1,9 @@
 export interface Task {
-  taskId: number;
+  task_id: number;
   description: string;
-  assignedTo: string;
+  assigned_to: string;
   status: string;
-  dueDate: string;
-  createdAt: string;
-  updatedAt: string;
+  due_date: string;
+  created_at: string;
+  updated_at: string;
 }

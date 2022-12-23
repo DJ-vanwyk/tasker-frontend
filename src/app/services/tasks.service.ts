@@ -3,7 +3,6 @@ import { ApiService } from './api.service';
 import { Observable } from 'rxjs';
 
 import { Response } from '../types/response';
-import { HttpResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',

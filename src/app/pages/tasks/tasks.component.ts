@@ -13,8 +13,8 @@ export class TasksComponent {
 
   constructor(private tasksService: TasksService, private router: Router) {
     tasksService.fetchAll().subscribe(
-      (data) => {
-        console.log(data);
+      (res) => {
+        this.tasks = res.data;
       },
       (err) => {
         if (err.status) {

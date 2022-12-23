@@ -12,12 +12,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="table-row">
-        <th scope="row">1</th>
-        <td>Make dinner for in laws</td>
-        <td>djvanwyk</td>
-        <td>22 Jan 2022</td>
-        <td>Pending</td>
+      <tr *ngFor="let task of tasks" class="table-row">
+        <th scope="row">{{ task.task_id }}</th>
+        <td>{{ task.description }}</td>
+        <td>{{ task.assigned_to }}</td>
+        <td>{{ task.due_date }}</td>
+        <td>{{ task.status }}</td>
       </tr>
     </tbody>
   </table>
