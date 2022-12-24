@@ -23,4 +23,8 @@ export class TasksComponent {
       }
     );
   }
+
+  goToNewTask() {
+    this.router.navigateByUrl('tasks/new');
+  }
 }

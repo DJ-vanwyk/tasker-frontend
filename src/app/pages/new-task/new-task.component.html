@@ -1,0 +1,67 @@
+<app-wrapper>
+  <h1>New Task</h1>
+  <form class="form">
+    <div class="mb-3">
+      <label for="description" class="form-label"> Description </label>
+      <input
+        type="datetime"
+        class="form-control"
+        id="description"
+        name="description"
+        [(ngModel)]="newTask.description"
+        placeholder="Enter your task"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label"> Status </label>
+      <select
+        [(ngModel)]="newTask.status"
+        class="form-select"
+        aria-label="Default select example"
+        name="status"
+      >
+        <option value="-1" selected>Select a status</option>
+        <option *ngFor="let status of statuses" value="{{ status.status_id }}">
+          {{ status.name }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Assigned To</label
+      >
+      <select
+        [(ngModel)]="newTask.assigned_to"
+        class="form-select"
+        aria-label="Default select example"
+        name="assigned_to"
+      >
+        <option value="-1" selected>Select a user</option>
+        <option *ngFor="let user of users" value="{{ user.user_id }}">
+          {{ user.username }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="dueDate" class="form-label">Due Date</label>
+      <input
+        name="due_date"
+        [(ngModel)]="newTask.due_date"
+        type="text"
+        class="form-control"
+        id="exampleFormControlInput1"
+        placeholder="e.g.  2022-12-24"
+      />
+    </div>
+    <button type="button" class="btn btn-primary" (click)="onCreate()">
+      Create
+    </button>
+    <button
+      type="button"
+      class="btn btn-outline-secondary ms-3"
+      (click)="onCancel()"
+    >
+      Cancel
+    </button>
+  </form>
+</app-wrapper>

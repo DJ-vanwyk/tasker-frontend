@@ -17,6 +17,7 @@ import { UsersComponent } from './pages/users/users.component';
 import { StatusesComponent } from './pages/statuses/statuses.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { NewTaskComponent } from './pages/new-task/new-task.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ModalComponent } from './components/modal/modal.component';
     StatusesComponent,
     WrapperComponent,
     ModalComponent,
+    NewTaskComponent,
   ],
   imports: [
     BrowserModule,
