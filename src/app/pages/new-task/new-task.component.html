@@ -10,7 +10,10 @@
         name="description"
         [(ngModel)]="newTask.description"
         placeholder="Enter your task"
+        [class.is-invalid]="descriptionError"
+        (change)="descriptionError = ''"
       />
+      <div class="invalid-feedback">{{ descriptionError }}</div>
     </div>
     <div class="mb-3">
       <label for="status" class="form-label"> Status </label>
@@ -19,12 +22,15 @@
         class="form-select"
         aria-label="Default select example"
         name="status"
+        [class.is-invalid]="statusError"
+        (change)="statusError = ''"
       >
         <option value="-1" selected>Select a status</option>
         <option *ngFor="let status of statuses" value="{{ status.status_id }}">
           {{ status.name }}
         </option>
       </select>
+      <div class="invalid-feedback">{{ statusError }}</div>
     </div>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label"
@@ -35,12 +41,15 @@
         class="form-select"
         aria-label="Default select example"
         name="assigned_to"
+        [class.is-invalid]="assignedToError"
+        (change)="assignedToError = ''"
       >
         <option value="-1" selected>Select a user</option>
         <option *ngFor="let user of users" value="{{ user.user_id }}">
           {{ user.username }}
         </option>
       </select>
+      <div class="invalid-feedback">{{ assignedToError }}</div>
     </div>
     <div class="mb-3">
       <label for="dueDate" class="form-label">Due Date</label>
@@ -51,7 +60,10 @@
         class="form-control"
         id="exampleFormControlInput1"
         placeholder="e.g.  2022-12-24"
+        [class.is-invalid]="dueDateError"
+        (change)="dueDateError = ''"
       />
+      <div class="invalid-feedback">{{ dueDateError }}</div>
     </div>
     <button type="button" class="btn btn-primary" (click)="onCreate()">
       Create

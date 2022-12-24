@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { User } from 'src/app/types/user';
 import { Status } from 'src/app/types/status';
 import { StatusesService } from 'src/app/services/statuses.service';
@@ -15,7 +15,12 @@ import { TasksService } from 'src/app/services/tasks.service';
 export class NewTaskComponent {
   statuses: Status[] = [];
   users: User[] = [];
-  description: string = 'asdsds';
+
+  // Error messages
+  descriptionError: string = '';
+  statusError: string = '';
+  assignedToError: string = '';
+  dueDateError: string = '';
 
   newTask: Task = {
     description: '',
@@ -60,8 +65,39 @@ export class NewTaskComponent {
   }
 
   onCreate() {
-    this.tasksService.create(this.newTask).subscribe((resp) => {
-      this.router.navigateByUrl('tasks');
-    });
+    // Resets error messages
+    this.descriptionError = '';
+    this.statusError = '';
+    this.assignedToError = '';
+    this.dueDateError = '';
+
+    // Checks if description, status, assigned_to, and due_date are empty
+    if (this.newTask.description === '') {
+      this.descriptionError = 'Description is required';
+    }
+
+    if (this.newTask.status === -1) {
+      this.statusError = 'Status is required';
+    }
+
+    if (this.newTask.assigned_to === -1) {
+      this.assignedToError = 'The task must be assigned to someone';
+    }
+
+    if (this.newTask.due_date === '') {
+      this.dueDateError = 'Due Date is required';
+    }
+
+    //Tries to create task if description, status, assigned_to, and due_date are not empty
+    if (
+      this.newTask.description !== '' &&
+      this.newTask.status !== -1 &&
+      this.newTask.assigned_to !== -1 &&
+      this.newTask.due_date !== ''
+    ) {
+      this.tasksService.create(this.newTask).subscribe((resp) => {
+        this.router.navigateByUrl('tasks');
+      });
+    }
   }
 }
