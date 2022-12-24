@@ -27,4 +27,8 @@ export class UsersService {
       username: user.username,
     });
   }
+
+  delete(id: number): Observable<Response> {
+    return this.api.delete(`/users/${id}`);
+  }
 }

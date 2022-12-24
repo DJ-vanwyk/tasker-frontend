@@ -77,4 +77,18 @@ export class ViewUserComponent {
       }
     );
   }
+
+  // Delete user
+  onDelete() {
+    this.usersService.delete(this.userId).subscribe(
+      () => {
+        this.router.navigateByUrl('users');
+      },
+      (err) => {
+        if (err.status === 401) {
+          this.router.navigateByUrl('login');
+        }
+      }
+    );
+  }
 }
