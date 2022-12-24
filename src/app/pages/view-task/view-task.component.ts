@@ -106,4 +106,8 @@ export class ViewTaskComponent {
       }
     );
   }
+
+  onBack() {
+    this.router.navigateByUrl('tasks');
+  }
 }
