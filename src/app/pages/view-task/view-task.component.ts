@@ -80,4 +80,30 @@ export class ViewTaskComponent {
   onCancel() {
     this.editMode = false;
   }
+
+  onSave() {
+    this.tasksService.update(this.taskId, this.task).subscribe(
+      (res) => {
+        this.editMode = false;
+      },
+      (err) => {
+        if (err.status === 401) {
+          this.router.navigateByUrl('login');
+        }
+      }
+    );
+  }
+
+  onDelete() {
+    this.tasksService.delete(this.taskId).subscribe(
+      (res) => {
+        this.router.navigateByUrl('tasks');
+      },
+      (err) => {
+        if (err.status === 401) {
+          this.router.navigateByUrl('login');
+        }
+      }
+    );
+  }
 }
