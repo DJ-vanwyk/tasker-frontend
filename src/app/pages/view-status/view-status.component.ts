@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StatusesService } from 'src/app/services/statuses.service';
 import { Status } from 'src/app/types/status';
