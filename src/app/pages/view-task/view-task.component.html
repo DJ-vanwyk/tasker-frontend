@@ -59,7 +59,10 @@
         [disabled]="!editMode"
         id="description"
         placeholder="Description"
+        [class.is-invalid]="descriptionError"
+        (change)="descriptionError = ''"
       />
+      <div class="invalid-feedback">{{ descriptionError }}</div>
     </div>
     <div class="mb-3">
       <label for="status" class="form-label"> Status </label>
@@ -101,7 +104,10 @@
         class="form-control"
         id="due_date"
         placeholder="e.g.  2022-12-24"
+        [class.is-invalid]="dueDateError"
+        (change)="dueDateError = ''"
       />
+      <div class="invalid-feedback">{{ dueDateError }}</div>
     </div>
   </form>
 </app-wrapper>

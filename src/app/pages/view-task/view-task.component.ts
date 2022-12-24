@@ -20,6 +20,13 @@ export class ViewTaskComponent {
     assigned_to: 0,
     due_date: '',
   };
+
+  // Error messages
+  descriptionError: string = '';
+  statusError: string = '';
+  assignedToError: string = '';
+  dueDateError: string = '';
+
   users: User[] = [];
   statuses: Status[] = [];
   editMode: boolean = false;
@@ -82,16 +89,32 @@ export class ViewTaskComponent {
   }
 
   onSave() {
-    this.tasksService.update(this.taskId, this.task).subscribe(
-      (res) => {
-        this.editMode = false;
-      },
-      (err) => {
-        if (err.status === 401) {
-          this.router.navigateByUrl('login');
+    // Reset errors
+    this.descriptionError = '';
+    this.statusError = '';
+
+    // Validate
+    if (this.task.description === '') {
+      this.descriptionError = 'Description is required';
+    }
+
+    if (this.task.due_date === '') {
+      this.dueDateError = 'Due date is required';
+    }
+
+    // Save if no errors
+    if (this.task.description !== '' && this.task.due_date !== '') {
+      this.tasksService.update(this.taskId, this.task).subscribe(
+        (res) => {
+          this.editMode = false;
+        },
+        (err) => {
+          if (err.status === 401) {
+            this.router.navigateByUrl('login');
+          }
         }
-      }
-    );
+      );
+    }
   }
 
   onDelete() {
