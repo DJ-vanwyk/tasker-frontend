@@ -1,1 +1,24 @@
-<app-wrapper><h1>Statuses</h1></app-wrapper>
+<app-wrapper>
+  <h1 class="mb-3">Statuses</h1>
+  <button type="button" class="btn btn-primary mb-3" (click)="onNewStatus()">
+    New Status
+  </button>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let status of statuses"
+        class="table-row"
+        (click)="onViewStatus(status.status_id)"
+      >
+        <th scope="row">{{ status.status_id }}</th>
+        <td>{{ status.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</app-wrapper>

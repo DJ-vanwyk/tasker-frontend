@@ -19,6 +19,10 @@ import { WrapperComponent } from './components/wrapper/wrapper.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NewTaskComponent } from './pages/new-task/new-task.component';
 import { ViewTaskComponent } from './pages/view-task/view-task.component';
+import { ViewStatusComponent } from './pages/view-status/view-status.component';
+import { NewStatusComponent } from './pages/new-status/new-status.component';
+import { NewUserComponent } from './pages/new-user/new-user.component';
+import { ViewUserComponent } from './pages/view-user/view-user.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { ViewTaskComponent } from './pages/view-task/view-task.component';
     ModalComponent,
     NewTaskComponent,
     ViewTaskComponent,
+    ViewStatusComponent,
+    NewStatusComponent,
+    NewUserComponent,
+    ViewUserComponent,
   ],
   imports: [
     BrowserModule,
