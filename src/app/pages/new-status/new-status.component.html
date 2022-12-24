@@ -10,7 +10,10 @@
         name="name"
         [(ngModel)]="newStatus.name"
         placeholder="Enter your status"
+        [class.is-invalid]="nameError"
+        (change)="nameError = ''"
       />
+      <div class="invalid-feedback">{{ nameError }}</div>
     </div>
     <button type="button" class="btn btn-primary" (click)="onCreate()">
       Create

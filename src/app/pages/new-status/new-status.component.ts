@@ -9,6 +9,9 @@ import { Status } from 'src/app/types/status';
   styleUrls: ['./new-status.component.scss'],
 })
 export class NewStatusComponent {
+  // Error messages
+  nameError: string = '';
+  // New status
   newStatus: Status = {
     name: '',
   };
@@ -23,6 +26,14 @@ export class NewStatusComponent {
   }
 
   onCreate() {
+    // Reset error messages
+    this.nameError = '';
+    // Validate
+    if (this.newStatus.name === '') {
+      this.nameError = 'Name is required';
+      return;
+    }
+
     this.statusesService.create(this.newStatus).subscribe(
       (res) => {
         this.router.navigateByUrl('statuses');
