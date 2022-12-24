@@ -9,10 +9,14 @@ import { Status } from 'src/app/types/status';
   styleUrls: ['./view-status.component.scss'],
 })
 export class ViewStatusComponent {
+  // Error messages
+  nameError: string = '';
+  // Status
   statusId: number = 0;
   status: Status = {
     name: '',
   };
+  // Edit mode
   editMode: boolean = false;
 
   constructor(
@@ -37,19 +41,31 @@ export class ViewStatusComponent {
     );
   }
 
+  // Navigation
   onBack() {
     this.router.navigateByUrl('statuses');
   }
 
+  // Enable edit mode
   onEdit() {
     this.editMode = true;
   }
 
+  // Cancel edit mode
   onCancel() {
     this.editMode = false;
   }
 
+  // Update status
   onSave() {
+    // Reset error messages
+    this.nameError = '';
+    // Validate
+    if (this.status.name === '') {
+      this.nameError = 'Name is required';
+      return;
+    }
+
     this.statusesService.update(this.statusId, this.status).subscribe(
       (res) => {
         this.editMode = false;
@@ -62,6 +78,7 @@ export class ViewStatusComponent {
     );
   }
 
+  // Delete status
   onDelete() {
     this.statusesService.delete(this.statusId).subscribe(
       (res) => {

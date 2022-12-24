@@ -59,7 +59,10 @@
         [disabled]="!editMode"
         id="name"
         placeholder="Enter the status name"
+        [class.is-invalid]="nameError"
+        (change)="nameError = ''"
       />
+      <div class="invalid-feedback">{{ nameError }}</div>
     </div>
   </form>
 </app-wrapper>
