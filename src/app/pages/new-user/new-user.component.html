@@ -1,1 +1,53 @@
-<p>new-user works!</p>
+<app-wrapper>
+  <h1 class="mb-3">New User</h1>
+  <form class="form">
+    <div class="mb-3">
+      <label for="username" class="form-label"> Username </label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        name="username"
+        [(ngModel)]="newUser.username"
+        placeholder="Enter your username"
+        [class.is-invalid]="usernameError"
+        (change)="usernameError = ''"
+      />
+      <div class="invalid-feedback">{{ usernameError }}</div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label"> Password </label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        [(ngModel)]="newUser.password"
+        placeholder="Enter your password"
+        [class.is-invalid]="passwordError"
+        (change)="passwordError = ''"
+      />
+      <div class="invalid-feedback">{{ passwordError }}</div>
+    </div>
+    <div class="mb-3">
+      <label for="confirmPassword" class="form-label"> Confirm Password </label>
+      <input
+        type="password"
+        class="form-control"
+        id="confirmPassword"
+        name="confirmPassword"
+        [(ngModel)]="confirmPassword"
+        placeholder="Confirm your password"
+        [class.is-invalid]="confirmPasswordError"
+        (change)="confirmPasswordError = ''"
+      />
+      <div class="invalid-feedback">{{ confirmPasswordError }}</div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="onCreate()">
+      Create
+    </button>
+    <button type="button" class="btn btn-secondary ms-3" (click)="onCancel()">
+      Cancel
+    </button>
+  </form>
+</app-wrapper>
