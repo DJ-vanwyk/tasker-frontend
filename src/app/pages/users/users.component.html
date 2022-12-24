@@ -1,1 +1,24 @@
-<app-wrapper><h1>Users</h1></app-wrapper>
+<app-wrapper>
+  <h1 class="mb-3">Users</h1>
+  <button type="button" class="btn btn-primary mb-3" (click)="onNewUser()">
+    New User
+  </button>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let user of users"
+        class="table-row"
+        (click)="onViewUser(user.user_id)"
+      >
+        <th scope="row">{{ user.user_id }}</th>
+        <td>{{ user.username }}</td>
+      </tr>
+    </tbody>
+  </table>
+</app-wrapper>
