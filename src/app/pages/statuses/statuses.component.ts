@@ -33,7 +33,7 @@ export class StatusesComponent {
     this.router.navigateByUrl('statuses/new');
   }
 
-  onViewStatus(id: number) {
+  onViewStatus(id: number | undefined) {
     this.router.navigateByUrl(`statuses/${id}`);
   }
 }

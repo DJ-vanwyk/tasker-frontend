@@ -1,6 +1,6 @@
 export interface Status {
-  status_id: number;
+  status_id?: number;
   name: string;
-  created_at: Date;
-  updated_at: Date;
+  created_at?: Date;
+  updated_at?: Date;
 }
