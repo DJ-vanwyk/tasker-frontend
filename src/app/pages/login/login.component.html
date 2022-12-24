@@ -2,34 +2,33 @@
   <form>
     <h1>Login</h1>
     <div class="mb-3">
-      <label for="username" class="form-label">
-        Username
-      </label>
+      <label for="username" class="form-label"> Username </label>
       <input
         type="text"
-        class="form-control was-validated"
+        class="form-control"
+        [class.is-invalid]="usernameError"
         id="username"
         name="username"
         [(ngModel)]="username"
         placeholder="Enter username"
         required
+        (change)="usernameError = ''"
       />
-      <div class="valid-feedback">
-        Looks good!
-      </div>
+      <div class="invalid-feedback">Username is required</div>
     </div>
     <div class="mb-3">
-      <label for="password" class="form-label">
-        Password
-      </label>
+      <label for="password" class="form-label"> Password </label>
       <input
         type="password"
         class="form-control"
         id="password"
         name="password"
         [(ngModel)]="password"
+        [class.is-invalid]="passwordError"
         placeholder="Enter password"
+        (change)="passwordError = ''"
       />
+      <div class="invalid-feedback">{{ passwordError }}</div>
     </div>
     <button type="submit" class="btn btn-dark" (click)="onClick()">
       Login
