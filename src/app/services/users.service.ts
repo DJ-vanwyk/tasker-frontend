@@ -17,4 +17,14 @@ export class UsersService {
   create(user: User): Observable<Response> {
     return this.api.post('/users', user);
   }
+
+  fetch(id: number): Observable<Response> {
+    return this.api.get(`/users/${id}`);
+  }
+
+  update(id: number, user: User): Observable<Response> {
+    return this.api.put(`/users/${id}`, {
+      username: user.username,
+    });
+  }
 }
