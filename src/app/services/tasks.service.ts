@@ -18,4 +18,12 @@ export class TasksService {
   create(task: Task): Observable<Response> {
     return this.api.post('/tasks', task);
   }
+
+  fetch(id: number): Observable<Response> {
+    return this.api.get(`/tasks/${id}`);
+  }
+
+  update(id: number, task: Task): Observable<Response> {
+    return this.api.put(`/tasks/${id}`, task);
+  }
 }

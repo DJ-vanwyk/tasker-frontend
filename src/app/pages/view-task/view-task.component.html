@@ -1,0 +1,81 @@
+<app-wrapper>
+  <h1># {{ taskId }}</h1>
+  <button
+    *ngIf="!editMode"
+    type="button"
+    class="btn btn-primary mb-3"
+    (click)="onEdit()"
+  >
+    Edit
+  </button>
+  <button *ngIf="editMode" type="button" class="btn btn-primary mb-3">
+    Save
+  </button>
+  <button
+    *ngIf="editMode"
+    type="button"
+    class="btn btn-secondary mb-3 ms-3"
+    (click)="onCancel()"
+  >
+    Cancel
+  </button>
+  <button type="button" class="btn btn-danger mb-3 ms-3">Delete</button>
+  <form>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input
+        type="text"
+        name="description"
+        [(ngModel)]="task.description"
+        class="form-control"
+        [disabled]="!editMode"
+        id="description"
+        placeholder="Description"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="status" class="form-label"> Status </label>
+      <select
+        [disabled]="!editMode"
+        class="form-select"
+        aria-label="Default select example"
+        name="status"
+        [(ngModel)]="task.status"
+      >
+        <option value="-1" selected>Select a status</option>
+        <option *ngFor="let status of statuses" value="{{ status.status_id }}">
+          {{ status.name }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label"
+        >Assigned To</label
+      >
+      <select
+        [disabled]="!editMode"
+        class="form-select"
+        aria-label="Default select example"
+        name="assigned_to"
+        [(ngModel)]="task.assigned_to"
+      >
+        <option value="-1" selected>Select a user</option>
+        <option *ngFor="let user of users" value="{{ user.user_id }}">
+          {{ user.username }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="dueDate" class="form-label">Due Date</label>
+      <input
+        [disabled]="!editMode"
+        name="due_date"
+        [(ngModel)]="task.due_date"
+        type="text"
+        class="form-control"
+        id="due_date"
+        placeholder="e.g.  2022-12-24"
+      />
+    </div>
+  </form>
+</app-wrapper>

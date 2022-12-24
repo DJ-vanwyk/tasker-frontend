@@ -14,7 +14,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let task of tasks" class="table-row">
+      <tr
+        *ngFor="let task of tasks"
+        class="table-row"
+        (click)="onSelectTask(task)"
+      >
         <th scope="row">{{ task.task_id }}</th>
         <td>{{ task.description }}</td>
         <td>{{ task.assigned_to }}</td>

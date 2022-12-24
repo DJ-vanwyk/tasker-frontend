@@ -63,4 +63,8 @@ export class TasksComponent {
   goToNewTask() {
     this.router.navigateByUrl('tasks/new');
   }
+
+  onSelectTask(task: Task) {
+    this.router.navigateByUrl(`tasks/${task.task_id}`);
+  }
 }
