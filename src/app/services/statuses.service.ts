@@ -18,4 +18,16 @@ export class StatusesService {
   create(status: Status): Observable<Response> {
     return this.api.post('/statuses', status);
   }
+
+  fetch(id: number): Observable<Response> {
+    return this.api.get(`/statuses/${id}`);
+  }
+
+  update(id: number, status: Status): Observable<Response> {
+    return this.api.put(`/statuses/${id}`, status);
+  }
+
+  delete(id: number): Observable<Response> {
+    return this.api.delete(`/statuses/${id}`);
+  }
 }
